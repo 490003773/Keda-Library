@@ -9,18 +9,18 @@
 - 开发语言 : Python
  - 框架 : tornado
  - 第三方库 :
-   - pillow
-   - MySQLDb
-   - ldap
-   - pypdf
+    - MySQLDb
+    - pillow
+    - ldap
+    - pypdf
 - 数据库 : mysql5.7
 - 系统工具
   - imagemagick
-   - sudo apt-get install imagemagick
+    - sudo apt-get install imagemagick
   - libreoffice
-   - sudo apt-get install libreoffice
+    - sudo apt-get install libreoffice
   - pdf2htmlex
-   - sudo apt-get install pdf2htmlex
+    - sudo apt-get install pdf2htmlex
 
 文件、文件夹说明
 --
