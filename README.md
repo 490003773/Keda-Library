@@ -2,14 +2,25 @@
 ==
 运行环境
 --
-- 操作系统 : Ubuntu16.04
+- 操作系统 : Ubuntu-16.04
+- 服务器 : Nginx-(需要手动编译安装)
+ - 插件 : nginx_upload_module
+ - 依赖 : openssl, zlib, pcre
 - 开发语言 : Python
-- 框架 : tornado
+ - 框架 : tornado
+ - 第三方库 :
+   - pillow
+   - MySQLDb
+   - ldap
+   - pypdf
 - 数据库 : mysql5.7
-- 系统工具 : imagemagick, libreoffice, pdf2htmlex
- - sudo apt-get install imagemagick
- - sudo apt-get install libreoffice
- - sudo apt-get install pdf2htmlex
+- 系统工具
+  - imagemagick
+   - sudo apt-get install imagemagick
+  - libreoffice
+   - sudo apt-get install libreoffice
+  - pdf2htmlex
+   - sudo apt-get install pdf2htmlex
 
 文件、文件夹说明
 --
