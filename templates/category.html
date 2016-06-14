@@ -1,0 +1,16 @@
+<select name="sub_category" id="sub_category_{{pid}}">
+	{% for cate in category %}
+	<option value="{{cate['id']}}">{{cate['name']}}</option>
+	{% end %}
+	{% if cname == "common" and pid == "1" %}
+	<script type="text/javascript">
+		$(function(){
+			subcategory($("select[name='sub_category']"),	"common", $("#sub_category_{{pid}}").val())
+
+			$("#sub_category_{{pid}}").change(function(){
+				subcategory($("#sub_category_{{pid}}"), "common", $(this).val())
+			})
+		})
+	</script>
+	{% end %}
+</select>

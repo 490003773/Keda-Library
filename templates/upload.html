@@ -1,0 +1,71 @@
+{% extends "base.tpl" %}
+{% block title %}上传文档{% end %}
+{% block sub_nav %}{% end %}
+{% block bd %}
+<link rel="stylesheet" href="{{static_url('css/upload.css')}}">
+<div id="upload_box">
+	<div id="upload_status">
+		<div id="active">
+			<i>1</i>
+			<span>选择文档</span>
+		</div>
+		<div>
+			<i>2</i>
+			<span>补充信息</span>
+		</div>
+		<div>
+			<i>3</i>
+			<span>完成上传</span>
+		</div>
+	</div>
+	<form method="post" id="upload" enctype="multipart/form-data">
+		{% raw xsrf_form_html() %}
+		<div id="status_1_section">
+			<input type="file" id="upload_btn" name="file" accept="application/pdf, image/jpeg, image/x-png">
+			<div id="tips">
+				<h4>温馨提示:</h4>
+				<p>1.您可以上传文档资料的类型为PDF,DOC,PPT,XLS,JPG格式文档，暂不支持其他格式；</p>
+				<p>2.上传涉及侵权内容文档将会被移除。如何判断文档是否侵权？查看<a href="#" id="rules">文库协议和用户规则</a>；</p>
+				<p>3.上传内容严禁含有淫秽色情及低俗信息的文档,让我们一起携手共同打造健康文库。</p>
+			</div>
+		</div>
+	</form>
+	<div class="message"></div>
+	<form action="/upload" method="post" id="upload_fileinfo">
+		{% raw xsrf_form_html() %}
+		<div id="status_2_section">
+			<label>
+				<span>标题</span>
+				<input type="text" id="title" name="nickname" required="required" placeholder="请输入文件名">
+			</label>
+			<label for="intro">
+				<span>简介</span>
+				<textarea id="intro" name="intro" required="required"></textarea>
+			</label>
+			<label for="sort">
+				<span>分类</span>
+				<select name="category" id="category">
+					<option value="common">常用</option>
+					<option value="topic">专题</option>
+					<option value="book">图书</option>
+					<option value="magazine">杂志</option>
+				</select>
+			</label>
+			<div id="extra"></div>
+			<input type="hidden" name="tmp_file" value="" />
+			<p class="message">文档上传中...</p>
+			<input type="submit" id="cfm_upload_btn" value="确认上传">
+		</div>
+		<div id="status_3_section">
+			<p>恭喜！文档上传成功</p>
+			<input type="button" id="ctn_upload_btn" value="继续上传">
+		</div>
+	</form>
+</div>
+<script src="{{static_url('js/category.js')}}"></script>
+<script src="{{static_url('js/upload.js')}}"></script>
+<script src="{{static_url('js/ajaxUpload.js')}}"></script>
+<script src="{{static_url('js/fileInfo.js')}}"></script>
+{% end %}
+{% block ad %}{% end %}
+{% block blogroll %}{% end %}

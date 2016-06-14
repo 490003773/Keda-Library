@@ -1,0 +1,37 @@
+/* public */
+.clear:after {content: ""; display: block; clear: both;}
+.fl {float: left;}
+.fr {float: right;}
+.wrap {width: 1200px; margin: 0 auto;}
+.error {color: red;}
+/* end public */
+
+/* layout */
+#header {width: 100%;}
+.user_bar {height: 42px; border-bottom: 1px solid #e6e6e6;}
+.search {height: 136px; position: relative;}
+.nav {height: 45px; background: #1aa97b; position: relative;}
+
+#footer {height: 140px; background: #333; padding-top: 20px;}
+/* end layout */
+
+.user_bar h1, .user_bar p {height: 42px; line-height: 42px; color: #949493;}
+.user_bar .login {margin-right: 14px; color: #ff6555;}
+.user_bar .regist {margin: 0 14px; color: #000;}
+.user_bar .tel {margin-left: 18px; padding-left: 20px; background: url(../img/tel.png) no-repeat 0 2px; color: #19a97b; font-weight: bold; font-size: 14px;}
+
+.search .logo {position: absolute; top: 58px; left: -10px;}
+.search .search_con {position: absolute; top: 33px; left: 354px;}
+.search .con_tab {height: 22px; line-height: 22px; font-size: 14px; color: #000; padding-left: 15px;}
+.search .con_tab a {margin-right: 18px;}
+.search .con_tab .active {color: #19a97b;}
+.search #search_text {width: 365px; height: 38px; line-height: 38px; border: 1px solid #19a97b; text-indent: 1em; font-size: 14px;}
+.search #search_btn {width: 76px; height: 40px; background: #19a97b; border: none; color: #fff; font-size: 14px; margin-left: -4px;}
+.search .slogan{position: absolute; top: 64px; right: 0;}
+
+.nav li {display: inline-block; text-align: center;}
+.nav ul:first-child a {display: inline-block; width: 125px; height: 44px; line-height: 44px; font-size: 16px; color: #fff;}
+.nav .active {background-color: #019875;}
+
+#footer p {height: 27px; line-height: 27px; margin-top: 11px; text-align: center; font-family: 黑体; font-size: 14px; color: #999;}
+#footer a {margin-right: 14px;}

@@ -1,0 +1,29 @@
+<div id="doc_manage" class="fr">
+  <ul class="nav_list" id="doc_sub_nav">
+    <li id="common" class="active fl">分类</li>
+    <li id="topic" class="fl">专题</li>
+    <li id="book" class="fl">图书</li>
+    <li id="magazine" class="fl">杂志</li>
+  </ul>
+  <form id="delete_doc" action="/admin/document/delete" method="get">
+    {% raw xsrf_form_html() %}
+    <table>
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>文档名</th>
+          <th>上传日期</th>
+          <th>上传人员</th>
+          <th>所属分类</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="doc_list">
+      </tbody>
+    </table>
+  </form>
+  <div class="paging">
+  </div>
+  <a href="#" class="delete">删除</a>
+</div>
+<script src="{{static_url('js/mgr-document.js')}}"></script>

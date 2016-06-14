@@ -1,0 +1,40 @@
+#sub_page {display: none; margin-bottom: 40px;}
+
+#sub_page_nav {border: 1px solid #d9d9d9; width: 900px;}
+#first_ul li, #sec_ul li {padding: 0 14px; height: 36px; line-height: 36px;}
+#first_ul a, #sec_ul a {font-size: 14px; color: #666;}
+#first_ul .active {background: #fff;}
+#first_ul {background: #e6e6e6; height: 36px;}
+#sec_ul {background: #fff; padding: 5px 0;}
+#sec_ul a:hover {text-decoration: underline; color: #19a97b;}
+#sec_ul a:active {color: #19a97b;}
+#sec_ul .active {color: #19a97b;}
+
+#commonUl {background-color: #e6e6e6;}
+#commonUl li {padding: 0 14px; height: 36px; line-height: 36px; font-size: 14px; text-align: center;}
+#commonUl li a {color: #000;}
+#commonUl li.active {background-color: #fff;}
+#sub_page_l h4 {margin: 22px 0 10px 0; height: 32px; line-height: 32px; font-size: 14px; color: #666; text-indent: 22px;}
+
+#con_li li {margin-bottom: 20px; border: 1px solid #d9d9d9; border-radius: 5px; padding: 31px 28px; width: 844px;}
+#con_li img {border: 1px solid #ccc; width: 118px; height: 154px;}
+#con_li li div:last-child {margin-left: 30px; width: 694px;}
+#con_li h5 {height: 43px; line-height: 43px;}
+#con_li h5 a {font-size: 16px; color: #333;}
+#con_li h5 span {font-size: 14px; color: #999;}
+#con_li p {height: 25px; line-height: 25px; font-size: 14px; color: #666; text-indent: 2em;}
+
+#relates {margin-top: 40px;}
+.user_zone {border: 1px solid #ccc; width: 258px; height: 198px; background: url(../img/user_info_bg.jpg) no-repeat;}
+.user_info {margin: 24px 9px 27px; padding-bottom: 8px; border-bottom: 1px solid #ccc;}
+.user_info .potrait {display: inline-block; margin-left: 18px; width: 66px; height: 66px; border: 2px solid #fff; border-radius: 100%; overflow: hidden; background: #fff; box-shadow: 0px 3px 1px #ccc;}
+.user_info a img {width: 67px; height: 67px;}
+.user_info .user_name {margin-left: 10px; height: 70px; line-height: 70px; font-size: 16px; color: #666;}
+.upload_wrap {display: inline-block; margin: 3px 0 0 30px; width: 198px; height: 40px; line-height: 40px; cursor: pointer; background: url(../img/upload.png) no-repeat 5px 5px #fd8a23; text-indent: 47px; font-size: 20px; color: #fff;}
+#upload_btn {display: none;}
+.related_hd {margin: 18px 0; height: 39px; line-height: 39px; font-size: 16px; color: #666;}
+.related_docs {border: 1px solid #ccc; padding: 21px 0 0 19px; width: 239px; height: 602px; background: #f2f2f2; overflow: hidden;}
+.related_docs li {margin-bottom: 10px;}
+.related_docs li:after {content: ""; display: block; clear: both;}
+.related_docs li dt {float: left; margin: 7px 0 0 12px; height: 20px; line-height: 20px; font-size: 14px; color: #666;}
+.related_docs li dd {float: left;}

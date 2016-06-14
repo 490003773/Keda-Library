@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理</title>
+	<link rel="stylesheet" href="{{static_url('css/reset.css')}}">
+	<link rel="stylesheet" href="{{static_url('css/admin.css')}}">
+	<script type="text/javascript" src="{{static_url('js/jquery.js')}}"></script>
+</head>
+<body>
+	<div id="header">
+		<div id="user_bar" class="wrap">
+			<a href="/">返回文库首页</a>
+			<img src="{{static_url('img/slogan.png')}}">
+		</div>
+		<div id="nav" class="wrap">
+			<h4>科达文库后台管理系统</h4>
+			<div id="user_info">
+				<i></i>&nbsp;
+				<span>
+					{% if not username %}
+						未登录
+					{% else %}
+						{{username}}
+					{% end %}
+				</span>
+			</div>
+		</div>
+	</div>
+	<div id="main" class="wrap">
+		<div><span class="message"></span></div>
+		{% if not username %}
+		<div id="login_in">
+			<form action="admin" method="post" id="sign_in">
+				{% raw xsrf_form_html() %}
+				<label for="user_name">
+					<span>用户名</span>
+					<input type="text" name="username" id="user_name">
+				</label>
+				<label for="password">
+					<span>密码</span>
+					<input type="password" name="password" id="password">
+				</label>
+				<label for="security_code">
+					<span>验证码</span>
+					<input type="text" name="verifycode" id="security_code">
+					<a href="/verifycode" id="flushcode">
+						<img src="{{static_url('img/verifycode/%s' %verifycode.name)}}" id="sc_img" width="120" height="30">
+					</a>
+				</label>
+				<label for="submit">
+					<input type="submit" id="login_in_btn" value="登录">
+				</label>
+			</form>
+		</div>
+		<script src="{{static_url('js/admin-index-login.js')}}"></script>
+		{% else %}
+		<div id="control_panel">
+			<ul id="nav_list" class="fl">
+				<li id="n_overview" class="active">概览</li>
+				<li id="n_category">分类管理</li>
+				<li id="n_permission">权限管理</li>
+				<li id="n_document">文档管理</li>
+				<li id="n_user">用户管理</li>
+				<li id="n_about">关于文库</li>
+				<li id="n_exit">退出</li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer" class="wrap">
+		<p>
+			<a href="#">关于我们</a>|
+			<a href="#">联系我们</a>|
+			<a href="#">加入我们</a>|
+			<a href="#">法律声明</a>|
+			<a href="#">媒体报道</a>|
+			<a href="#">合作伙伴</a>
+		</p>
+		<p><a href="#">广东科达研发院 ©版权所有</a></p>
+	</div>
+	<script src="{{static_url('js/admin.js')}}"></script>
+	<script src="{{static_url('js/admin-index-nav.js')}}"></script>
+	{% end %}
+</body>
+</html>

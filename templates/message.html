@@ -1,0 +1,18 @@
+{{ escape(message) }}
+<p>
+	System will redirect in <span id="sec"></span>s...
+	<a href="/" title="">立即跳转</a>
+</p>
+<script type="text/javascript">
+	// set time to redirect index
+	var limit = 5
+	function timer()
+	{
+		if (limit == 0){
+			location.href = "/"
+		}
+		document.getElementById("sec").innerHTML = limit--
+		setTimeout("timer()", 1000)
+	}
+	timer()
+</script>

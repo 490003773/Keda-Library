@@ -1,0 +1,22 @@
+{% extends "base.tpl" %}
+{% block bd %}
+<div id="user-section">
+	<div id="login-form">
+		<form method="post" id="sign-in">
+			<span class="error"></span>
+			<p>
+				<label for="username">Username</label>
+				<input type="text" name="username" />
+			</p>
+			<p>
+				<label for="password">Password</label>
+				<input type="password" name="password" />
+			</p>
+			<p>
+				<input type="submit" value="Sign In" />
+			</p>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="{{ static_url('login.js') }}"></script>
+{% end %}

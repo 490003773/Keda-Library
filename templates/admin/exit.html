@@ -1,0 +1,19 @@
+<div id="login_out">
+  <p>您已成功注销！</p>
+  <p><span id="sec"></span>s...返回登录页面</p>
+	<a href="/admin" title="">立即跳转</a>
+</div>
+<script type="text/javascript">
+	//var oLoginOut = document.getElementById('login_out');
+	// set time to redirect index
+	var limit = 30
+	function timer()
+	{
+		if (limit == 0){
+			location.href = "/admin"
+		}
+		document.getElementById("sec").innerHTML = limit--
+		setTimeout("timer()", 1000)
+	}
+	timer()
+</script>

@@ -1,0 +1,67 @@
+{% set visiable_pagination = 7 %}
+<input type="hidden" name="type" value="{{type}}" />
+<input type="hidden" name="current_page" value="{{current_page}}" />
+<input type="hidden" name="total_pages" value="{{total_pages}}" />
+<ul id="d_paging">
+  <li id="previous" class="fl">
+    <a href="-1">&laquo;</a>
+  </li>
+  <li class="fl {% if current_page == 1 %}active{% end %}">
+    <a href="1">1</a>
+  </li>
+  {% if total_pages <= 10 %}
+    {% set start = 2 %}
+    {% set end = total_pages-1 %}
+  {% else %}
+    {% set start = max(current_page-3, 2) %}
+    {% set end = min(current_page+4, total_pages) %}
+  {% end %}
+
+  {% if start != 2 %}
+  <li class="fl">...</li>
+  {% end %}
+
+  {% if end-start < visiable_pagination %}
+    {% set end = min(start+visiable_pagination, total_pages) %}
+    {% set start = max(end-visiable_pagination, 2) %}
+  {% end %}
+
+  {% for i in range(start, end) %}
+  <li class="fl {% if current_page == i %}active{% end %}">
+    <a href="{{i}}">
+      {{i}}
+    </a>
+  </li>
+  {% end %}
+
+  {% if end != total_pages %}
+  <li class="fl">...</li>
+  {% end %}
+  {% if total_pages != 1 %}
+  <li class="fl {% if current_page == total_pages %}active{% end %}">
+    <a href="{{total_pages}}">{{total_pages}}</a>
+  </li>
+  {% end %}
+  <li id="next" class="fl">
+    <a href="+1">&raquo;</a>
+  </li>
+</ul>
+<script src="{{static_url('js/mgr-document-paging.js')}}"></script>
+{% if total_pages > 10 %}
+<form action="/admin/document?type={{type}}&page=" method="get" id="turn_page">
+  <span>到第<input type="text" name="page">页</span>
+  <input type="submit" value="确定">
+</form>
+<script>
+  $(function(){
+    $("#turn_page").submit(function(){
+      page = parseInt($("input[name='page']").val());
+      if (page<=pagesize){
+        url = $(this).attr("action")+page;
+        turn_page(url);
+      }
+      return false;
+    });
+  })
+</script>
+{% end %}

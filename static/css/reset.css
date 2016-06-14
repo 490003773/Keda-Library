@@ -1,0 +1,12 @@
+body{background-color: #fafafa;}
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,dl,dd,form,input {margin: 0;}
+ul,ol,th,td,input,select,option,textarea {padding: 0;}
+body,input,h1,h2,h3,h4,h5,h6 {font-size: 12px; font-family: "微软雅黑";}
+h1,h2,h3,h4,h5,h6,th {font-weight: normal;}
+ul,dl {list-style: none;}
+i {font-style: normal;}
+a {text-decoration: none; color: #adadad;}
+img {border: none; vertical-align: top;}
+table {border-collapse: collapse;}
+input,textarea {outline: none;}
+textarea {resize: none; overflow: auto;}

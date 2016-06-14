@@ -1,0 +1,29 @@
+<div id="authority_manage" class="fr ">
+{% if category %}
+  <form action="/admin/permission" method="post" id="pms_form">
+    {% raw xsrf_form_html() %}
+    <label for="sort">
+      <span>所属分类</span>
+      <select id="sort" name="category">
+        {% for cate in category %}
+        <option value="{{cate['id']}}">{{cate['name']}}</option>
+        {% end %}
+      </select>
+    </label>
+    <label for="if_login_in" class="checkbox_wrap fl">
+      <input type="checkbox" id="if_login_in" class="none" name="login" value="1">
+      <i class="checkbox_input"></i>
+      <span>登录查看</span>
+    </label>
+    <label for="can_download" class="checkbox_wrap fl">
+      <input type="checkbox" id="can_download" class="none" name="download" value="1">
+      <i class="checkbox_input"></i>
+      <span>登录下载</span>
+    </label>
+    <input type="submit" class="submit" value="确定">
+  </form>
+<script src="{{static_url('js/mgr-permission.js')}}"></script>
+{% else %}
+没有分类
+{% end %}
+</div>

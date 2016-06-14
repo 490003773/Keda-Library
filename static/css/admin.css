@@ -1,0 +1,170 @@
+/* begin public */
+/* global */
+.clear:after {content: ""; display: block; clear: both;}
+.fl {float: left;}
+.fr {float: right;}
+.wrap {width: 1000px; margin: 0 auto;}
+.none {display: none;}
+label {display: block;}
+
+/* submit button */
+input[type=submit] {position: absolute; width: 120px; height: 40px; border: none; border-radius: 5px; background: #19a97b; font-size: 18px; color: #fff; cursor: pointer;}
+input[type=submit]:hover {background: #0e956a;}
+#login_in input[type=submit] {top: 10px; left: 130px;}
+#authority_manage input[type=submit] {top: 250px; left: 290px;}
+
+/* panel box */
+#overview, #sort_manage, #authority_manage, #doc_manage, #user_manage, #library_info {border: 1px solid #ececec; background-color: #fff;}
+#overview {display: block;}
+
+/* panel nav */
+ul.nav_list {position: absolute; top: 0; left: 0;}
+.nav_list li {border: 1px solid #ccc; border-left: none; border-top: none; width: 148px; height: 38px; line-height: 38px; text-align: center; font-size: 16px; color: #b2b2b2; cursor: pointer;}
+.nav_list li.active {color: #000;}
+
+/* checkbox */
+table input {display: none;}
+.checkbox_input {display: inline-block; margin: -3px 2px 0 0; border: 1px solid #ccc; width: 14px; height: 14px; line-height: 1; background-color: #fff; vertical-align: middle; cursor: pointer;}
+table input:checked + .checkbox_input:after {display: inline-block; content: "√"; font-weight: bold;}
+#if_login_in:checked + .checkbox_input:after, #can_download:checked + .checkbox_input:after {display: inline-block; margin: 2px; background-color: #1ec28d; width: 10px; height: 10px; content: "";}
+
+/* end public */
+
+/* layout */
+body {background: #fafafa;}
+#header {background: url(../img/admin/admin_header_bg.png) repeat-x;}
+#main {position: relative; margin: 43px auto 70px; min-height: 650px;}
+#footer {height: 50px;}
+
+/* header */
+#user_bar {height: 40px; line-height: 40px;}
+#user_bar a {font-size: 16px; color: #42aada;}
+#user_bar a:hover {color: #d9414b;}
+#user_bar img {float: right; margin-top: 10px; width: 265px; height: 20px;}
+
+#nav {height: 80px; line-height: 80px;}
+#nav h4 {float: left; font-size: 22px; color: #fff;}
+#user_info {float: right;}
+#user_info i {display: inline-block; width: 14px; height: 14px; background: url(../img/admin/user_i.png) no-repeat;}
+#user_info span {font-size: 16px; color: #fff;}
+
+/* main begin */
+/* login_in */
+#login_in {position: absolute; top: 49px; left: 200px; border: 1px solid #ccc; width: 598px; height: 498px; background-color: #fff;}
+#login_in form {margin: 120px auto; width: 375px;}
+#login_in label {margin-bottom: 30px;}
+#login_in span {position: absolute; width: 54px; height: 38px; line-height: 30px; text-align: center; font-size: 18px;}
+#user_name, #password, #security_code {margin-left: 75px; border: 1px solid #ccc; border-radius: 3px; width: 298px; height: 38px; font-size: 16px; text-indent: 5px;}
+#security_code {width: 148px;}
+#sc_img {margin-left: 6px; width: 140px; height: 40px; border-radius: 3px;}
+#login_in label:last-child {position: relative;}
+
+/* control_panel begin */
+/* navigation */
+#nav_list li {width: 240px; height: 59px; line-height: 59px; border-bottom: 1px solid #ececec; background-color: #fff; text-align: center; font-size: 16px; color: #000; cursor: pointer;}
+#nav_list .active {height: 60px; line-height: 60px; border-bottom: none; background-color: #19a97b; color: #fff;}
+
+/* overview */
+#overview {padding: 11px 39px 13px; width: 659px; height: 394px;}
+#overview li {border-bottom: 1px solid #ececec; height: 49px;}
+#overview li dt, #overview li dd {float: left; height: 49px; line-height: 49px; font-size: 16px; color: #333;}
+#overview li dt {width: 100px; text-align-last: justify;}
+#overview li dd {margin-left: 30px; color: #666;}
+#overview li:last-child {border-bottom: none;}
+
+/* sort_manage */
+#sort_manage {position: relative; padding: 20px; width: 697px;}
+#sort_manage table {width: 100%;}
+#sort_manage table:after {height: 100px; content: ""; display: block;}
+#sort_manage tr {height: 39px; border-bottom: 1px solid #ccc;}
+#sort_manage th {height: 50px;}
+#sort_manage th a, #sort_manage td a, #sort_manage th h4 {color: #2366A8; font-size: 16px;}
+#sort_manage th h4 {text-indent: 4px; color: #000;}
+#sort_manage th div {position: absolute; top: 25px; right: 30px;}
+#srch_ipt {border-radius: 3px; padding: 3px; width: 140px; height: 20px; line-height: 18px; font-size: 14px; text-align: left;}
+#srch_sbmt {position: relative; margin-left: -2px; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 3px; border-bottom-right-radius: 3px; width: 50px; height: 28px; font-size: 12px;}
+#sort_manage td:first-child {width: 15%; text-align: center;}
+#sort_manage td:last-child {width: 85%;}
+#sort_manage td div {position: relative;}
+#sort_manage input {display: inline-block;}
+.txt {border: 1px solid #ccc; border-radius: 2px; width: 70px; height: 25px; font-size: 14px; text-align: center;}
+.txts {width: 100px;}
+.add_row, .add_row1 {position: absolute; top: 5px; left: 80px; width: 16px; height: 16px; background: url(../img/admin/new_del.png) no-repeat; color: #fff;}
+.add_row:hover, .add_row1 {color: #F60;}
+.delete_row {position: absolute; top: 5px; left: 80px; width: 16px; height: 16px; background: url(../img/admin/new_del.png) no-repeat 0 -32px; color: #fff;}
+.delete_row:hover {color: #F60;}
+.class_2d {margin-left: 20px;}
+.class_2d .add_row1 {left: 110px;}
+.class_2d .delete_row {left: 136px;}
+.edit .class_2d .delete_row {left: 110px;}
+.class_3d {margin-left: 40px;}
+.class_3d .delete_row {left: 110px;}
+#srtform_sbmt {bottom: 30px; left: 300px;}
+
+/* authority_manage */
+#authority_manage {position: relative; padding: 11px 39px 13px; width: 659px; height: 394px;}
+#authority_manage form {margin: 78px 0 0 109px;}
+#authority_manage span {margin-right: 8px; font-size: 16px; color: #333;}
+#authority_manage select {border: 1px solid #ccc; border-radius: 3px; padding: 2px; height: 34px; font-size: 14px;}
+.checkbox_wrap {margin: 36px 0 0 76px;}
+
+/* doc_manage */
+#doc_manage {position: relative; padding: 47px 42px 13px 39px; width: 659px;}
+#doc_manage table:after {display: block; height: 150px; content: "";}
+#doc_manage table tr {width: 640px; border-bottom: 1px solid #ccc;}
+#doc_manage td, #doc_manage th {width: 140px; text-align: center; font-size: 16px; color: #333;}
+#doc_manage th {height: 45px; line-height: 45px;}
+#doc_manage td {height: 32px; line-height: 32px;}
+#doc_manage td:first-child, #doc_manage th:first-child {width: 0;}
+#doc_manage td:nth-child(2), #doc_manage th:nth-child(2) {width: 120px;}
+
+.paging {position: absolute; bottom: 70px; left: 160px;}
+.paging ul li {border: 1px solid #ccc; border-right: none; padding: 5px 8px; height: 16px; line-height: 16px; font-size: 14px; text-align: center; color: #d1e9ff; cursor: pointer;}
+#previous {border-top-left-radius: 5px; border-bottom-left-radius: 5px;}
+#next {border-right: 1px solid #ccc; border-top-right-radius: 5px; border-bottom-right-radius: 5px;}
+.paging a {color: #19a97b;}
+.paging .active {border: none; height: 18px; background: #19a97b;}
+.paging .active a {color: #fff;}
+.paging form {position: absolute; left: 280px; top: 8px; width: 200px;}
+.paging form span {margin-right: 5px; font-size: 12px; color: #666;}
+.paging input[type=text] {margin: 0 3px; border: 1px solid #ccc; border-radius: 5px; padding: 5px; width: 22px; height: 8px; text-align: center;}
+.paging input[type=submit] {border: 1px solid #ccc; border-radius: 3px; padding: 1px; background: #fafafa; width: 30px; height: 20px; font-size: 10px; color: #666;}
+
+#doc_manage .delete {display: inline-block; margin-left: 220px; border-radius: 5px; width: 120px; height: 40px; line-height: 40px; background: #b3b3b3; color: #fff; font-size: 18px; text-align: center;}
+
+/* user_manage */
+#user_manage {position: relative; padding: 47px 42px 13px 39px; width: 659px;}
+#user_manage table:after {display: block; height: 150px; content: "";}
+#user_manage table tr:first-child {width: 640px; border-bottom: 1px solid #ccc;}
+#user_manage td, #user_manage th {width: 140px; text-align: center; font-size: 16px; color: #333;}
+#user_manage th {height: 45px; line-height: 45px;}
+#user_manage td {height: 32px; line-height: 32px;}
+#user_manage td:first-child, #user_manage th:first-child {width: 0;}
+#user_manage td:nth-child(2), #user_manage th:nth-child(2) {width: 120px;}
+#um_form {display: none; padding-top: 50px; height: 300px; text-align: center;}
+#um_form label {margin-bottom: 30px;}
+#um_form span {position: absolute; width: 54px; height: 38px; line-height: 30px; text-align: center; font-size: 16px;}
+#um_form input[type=text] {margin-left: 75px; border: 1px solid #ccc; border-radius: 3px; width: 298px; height: 38px; font-size: 16px; text-indent: 5px;}
+#um_form input[type=submit] {margin: 50px 0 0 -50px;}
+
+.btn_list {text-align: center;}
+.btn_list a {display: inline-block; margin-right: 5px; border-radius: 5px; width: 120px; height: 40px; line-height: 40px; background: #b3b3b3; font-size: 18px; color: #fff; text-align: center;}
+
+/* library_info */
+#library_info {position: relative; padding: 112px 242px 130px; width: 256px;}
+#library_info p:first-child {margin-bottom: 18px; width: 254px; height: 28px; background: url(../img/admin/logo_admin.png) no-repeat; opacity: 0.7;}
+#library_info p {height: 33px; line-height: 33px; font-size: 16px; color: #666; text-indent: 24px;}
+
+/* end control_pannel */
+
+/* login_out */
+#login_out {padding: 234px 0 308px; border: 1px solid #e6e6e6; width: 998px; height: 56px; background-color: #fff; text-align: center;}
+#login_out p:first-child {height: 27px; line-height: 27px; font-size: 18px; color: #333;}
+#login_out p:last-child {height: 29px; line-height: 29px; font-size: 16px; color: red;}
+
+/* end main */
+
+/* footer */
+#footer {text-align: center;}
+#footer p {height: 27px; line-height: 27px; font-family: 黑体; font-size: 14px; color: #999;}
+#footer a {margin-right: 14px;}

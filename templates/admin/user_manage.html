@@ -1,0 +1,54 @@
+<div id="user_manage" class="fr">
+  <ul class="nav_list">
+    <li class="active fl" id="all_user">已有用户</li>
+    <li class="fl">新增</li>
+  </ul>
+  <div id="um_table">
+    <table>
+      <tr>
+        <!-- <th>&nbsp;</th> -->
+        <th>登录名</th>
+        <th>姓名</th>
+        <th>创建日期</th>
+        <th>操作</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <!-- <td><label for="user_{{user['uid']}}"><input type="checkbox" id="user_{{user['uid']}}" /><i class="checkbox_input"></i></label></td> -->
+        <td>{{user["username"]}}</td>
+        <td>{{user["realname"]}}</td>
+        <td>{{user["mtime"].strftime('%Y-%m-%d')}}</td>
+        <td>
+          <a href="{{user['uid']}}" class="update" >修改</a>
+          <a class="delete"
+              href="/admin/user?uid={{user['uid']}}">
+            删除
+          </a>
+        </td>
+      </tr>
+      {% end %}
+    </table>
+    <!-- <div class="btn_list">
+      <a href="#">修改</a>
+      <a href="#">删除</a>
+    </div> -->
+  </div>
+  <span class="message"></span>
+  <form id="um_form" method="post" action="/admin/user">
+    {% raw xsrf_form_html() %}
+    <label>
+      <span>登录名</span>
+      <input type="text" name="username" required="required" placeholder="请输入登录名">
+    </label>
+    <label>
+      <span>姓名</span>
+      <input type="text" name="realname" required="required" placeholder="请输入姓名">
+    </label>
+    <label>
+      <span>密码</span>
+      <input type="text" name="password" required="required" placeholder="请输入密码">
+    </label>
+    <input type="submit" value="添加">
+  </form>
+</div>
+<script src="{{static_url('js/mgr-user.js')}}"></script>

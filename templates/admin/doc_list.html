@@ -1,0 +1,36 @@
+{% for doc in docs %}
+<tr>
+  <td>
+    <label for="tr{{doc['id']}}">
+      <input type="checkbox" name="docid" id="tr{{doc['id']}}" value="{{doc['id']}}">
+      <i class="checkbox_input"></i>
+    </label>
+  </td>
+  <td>{{doc["name"][:7]}}</td>
+  <td>{{doc["mtime"].strftime('%Y-%m-%d')}}</td>
+  <td>{{doc["uploader"]}}</td>
+  <td>{{doc["cname"]}}</td>
+  <td>
+    <a class="del" href="/admin/document?type={{type}}&docid={{doc['id']}}">
+      删除
+    </a>
+  </td>
+</tr>
+{% end %}
+<input type="hidden" name="type" value="{{type}}" />
+<script>
+  $(".del").click(function(){
+    if (confirm("确认删除?"))
+      $.ajax({
+        url      : $(this).attr("href")+"&"+$("input[name=_xsrf]").val(),
+        type     : "delete",
+        data     : {"_xsrf":$("input[name='_xsrf']").val()},
+        dataType : "JSON",
+        success  : function(data){
+                      $("#n_document").click();
+                    },
+        error    : function(){}
+      });
+    return false;
+  });
+</script>

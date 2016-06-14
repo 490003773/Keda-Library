@@ -1,0 +1,26 @@
+<form action="/upload" method="post" id="upload_fileinfo" >
+	{% raw xsrf_form_html() %}
+	<p>
+		<label for="nickname"> Name</label>
+		<input type="text" name="nickname" />
+	</p>
+	<p>
+		<label for="intro">Intro</label>
+		<textarea rows="5" cols="15" name="intro"></textarea>
+	</p>
+	<p>
+		<label for="category">Category</label>
+		<select name="category" id="category">
+			<option value="common">常用</option>
+			<option value="topic">专题</option>
+			<option value="book">图书</option>
+			<option value="magazine">杂志</option>
+		</select>
+	</p>
+	<div id="extra">
+	</div>
+	<p>
+		<input type="submit" value="Upload" />
+	</p>
+	<script type="text/javascript" src="{{static_url('js/fileInfo.js')}}"></script>
+</form>

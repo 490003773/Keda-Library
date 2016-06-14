@@ -1,0 +1,212 @@
+<div id="sort_manage" class="fr">
+  <form id="sort_form" action="/admin/category" method="post" enctype="multipart/form-data">
+    {% raw xsrf_form_html() %}
+    <input type="hidden" id="category" name="category" value="" />
+    <table>
+      <tbody>
+        <tr class="header">
+          <th>
+            <a href="javascript:;" id="show_hide_tab">展开</a>
+          </th>
+          <th>
+            <h4 class="fl">分类名称</h4>
+            <div>
+              <input type="text" id="srch_ipt" class="txt">
+              <input type="submit" class="btn fr" id="srch_sbmt" value="搜索">
+            </div>
+          </th>
+          <th></th>
+        </tr>
+      </tbody>
+      <!-- 分类 -->
+      <tbody>
+        <tr class="class">
+          <td>
+            <a href="javascript:;" class="class_children">[+]</a>
+          </td>
+          <td id="t_common">
+            <div>
+              <input type="text" class="txt" value="分类" readonly />
+              <a href="javascript:;" class="add_row" title="添加"></a>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tbody class="edit"></tbody>
+      <tbody class="class_children">
+        {% set keys = category["common"].keys() %}
+        {% if category["common"] %}
+          {% for cid, cname in category["common"][1].items() %}
+          <tr>
+            <td></td>
+            <td id="t_common_{{cid}}">
+              <div class="class_2d">
+                <input type="text" class="txt txts"
+                      id="common_{{cid}}" value="{{cname}}" readonly />
+                <a href="javascript:;" class="add_row1" title="添加" onclick="addRow(this, 1)"></a>
+                {% if cid not in keys %}
+                <a href="/admin/category?type=common&cid={{cid}}"
+                    class="delete_row" title="删除"
+                    onclick="delRow(this);return false;">'
+                </a>
+                {% end %}
+              </div>
+            </td>
+            <td align="right">
+              <input type="button" value="修改" class="update" />
+            </td>
+          </tr>
+            {% if cid in keys %}
+              {% for sub_cid, sub_cname in category["common"][cid].items() %}
+              <tr>
+                <td></td>
+                <td>
+                  <div class="class_3d">
+                    <input type="text" class="txt txts"
+                            id="common_{{cid}}_{{sub_cid}}"
+                            value="{{sub_cname}}" readonly />
+                    <a href="/admin/category?type=common&cid={{sub_cid}}"
+                      class="delete_row" title="删除"
+                      onclick="delRow(this);return false;">
+                    </a>
+                  </div>
+                </td>
+                <td align="right">
+                  <input type="button" value="修改" class="update" />
+                </td>
+              </tr>
+              {% end %}
+            {% end %}
+          {% end %}
+        {% end %}
+      </tbody>
+      <!-- 分类 END -->
+      <!-- 专题 -->
+      <tbody>
+        <tr class="topic">
+          <td>
+            <a href="javascript:;" class="topic_children">[+]</a>
+          </td>
+          <td id="t_topic">
+            <div>
+              <input type="text" class="txt" value="专题" readonly />
+              <a href="javascript:;" class="add_row" title="添加"></a>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tbody class="edit"></tbody>
+      <tbody class="topic_children">
+        {% if category["topic"] %}
+          {% for topic in category["topic"] %}
+          <tr>
+            <td></td>
+            <td id="t_topic_{{topic['id']}}">
+              <div class="class_2d">
+                <input type="text" class="txt txts" id="topic_{{topic['id']}}"
+                    value="{{topic['name']}}" readonly />
+                <a href="/admin/category?type=topic&cid={{topic['id']}}"
+                    class="delete_row" title="删除"
+                    onclick="delRow(this);return false;">
+                </a>
+              </div>
+            </td>
+            <td align="right">
+              <input type="button" value="修改" class="update" />
+            </td>
+          </tr>
+          {% end %}
+        {% end %}
+      </tbody>
+      <!-- 专题 END -->
+      <!-- 图书 -->
+      <tbody>
+        <tr class="book">
+          <td>
+            <a href="javascript:;" class="book_children">[+]</a>
+          </td>
+          <td id="t_book">
+            <div>
+              <input type="text" class="txt" value="图书" readonly />
+              <a href="javascript:;" class="add_row" title="添加"></a>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tbody class="edit"></tbody>
+      <tbody class="book_children">
+        {% if category["book"] %}
+          {% for book in category["book"] %}
+          <tr>
+            <td></td>
+            <td id="t_book_{{book['id']}}">
+              <div class="class_2d">
+                <input type="text" class="txt txts"
+                      id="book_{{book['id']}}" value="{{book['name']}}" readonly />
+                <a href="/admin/category?type=book&cid={{book['id']}}"
+                  class="delete_row" title="删除"
+                  onclick="delRow(this);return false;">
+                </a>
+              </div>
+            </td>
+            <td align="right">
+              <input type="button" value="修改" class="update" />
+            </td>
+          </tr>
+          {% end %}
+        {% end %}
+      </tbody>
+      <!-- 图书 END -->
+      <!-- 杂志 -->
+      <tbody>
+        <tr class="magazine">
+          <td>
+            <a href="javascript:;" class="magazine_children">[+]</a>
+          </td>
+          <td id="t_magazine">
+            <div>
+              <input type="text" class="txt" value="杂志" readonly />
+              <a href="javascript:;" class="add_row" title="添加"></a>
+            </div>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tbody class="edit"></tbody>
+      <tbody class="magazine_children">
+        {% if category["magazine"] %}
+          {% for magazine in category["magazine"] %}
+          <tr>
+            <td></td>
+            <td id="t_magazine_{{magazine['id']}}">
+              <div class="class_2d">
+                <input type="text" class="txt txts"
+                      id="magazine_{{magazine['id']}}"
+                      value="{{magazine['name']}}" readonly />
+                <a href="/admin/category?type=magazine&cid={{magazine['id']}}"
+                    class="delete_row" title="删除"
+                    onclick="delRow(this);return false;">
+                </a>
+              </div>
+            </td>
+            <td align="right">
+              <input type="button" value="修改" class="update" />
+            </td>
+          </tr>
+          {% end %}
+        {% end %}
+      </tbody>
+      <!-- 杂志 END -->
+      <tbody>
+        <tr>
+          <input type="submit" id="srtform_sbmt" value="提交">
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+<div style="clear:both;"></div>
+<script src="{{static_url('js/mgr-category.js')}}"></script>
