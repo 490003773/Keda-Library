@@ -28,10 +28,11 @@
 		</div>
 	</div>
 	<div id="main" class="wrap">
-		<div><span class="message"></span></div>
+
 		{% if not username %}
 		<div id="login_in">
 			<form action="admin" method="post" id="sign_in">
+				<p class="message"></p>
 				{% raw xsrf_form_html() %}
 				<label for="user_name">
 					<span>用户名</span>

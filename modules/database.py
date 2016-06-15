@@ -6,11 +6,11 @@ class Database:
     def __init__(self, conf):
         pass
 
-    # return a list include some [{colname=value}, ...]
+    # return a list include some rows(dict(colname=value))
     def query(self, query, *param, **kwparam):
         pass
 
-    # return a dict {colname=value}
+    # return a row (dict(colname=value))
     def get(self, query, *param, **kwparam):
         pass
 

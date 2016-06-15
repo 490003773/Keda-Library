@@ -22,7 +22,8 @@ class LoginHandler(BaseHandler):
 			result["status"] = LDAPTool().ldap_get_vaild(username, password)
 			if result["status"]:
 				self.set_secure_cookie("username", username, expires_days=None)
+				result["message"] = "登陆成功"
 		except Exception as e:
-			result = {"status": False, "message": "用户验证异常"}
+			result["message"] = "用户不存在"
 		self.write(json.dumps(result))
 		self.finish()

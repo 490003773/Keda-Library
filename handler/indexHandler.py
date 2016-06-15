@@ -17,6 +17,7 @@ class IndexHandler(tornado.web.RequestHandler):
             # login = True if username else False
             # 分类信息
             com_cate = CommonCategory().dist()
+            print com_cate
             # 分类专区
             commons = Common().dist()
             # 热门专题func_nafunc_na

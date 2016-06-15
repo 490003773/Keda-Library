@@ -98,11 +98,11 @@
 						{% raw xsrf_form_html() %}
 						<p id="un_wrap">
 							<label for="user_name"></label>
-							<input type="text" name="username" id="user_name" placeholder="手机号/用户名/邮箱">
+							<input type="text" name="username" id="user_name" placeholder="手机号/用户名/邮箱" required />
 						</p>
 						<p id="pw_wrap">
 							<label for="password"></label>
-							<input type="password" name="password" id="password" placeholder="请输入密码">
+							<input type="password" name="password" id="password" placeholder="请输入密码" required />
 						</p>
 						<span class="error">{{message}}</span>
 						<!-- <p id="kl_wrap" class="clear">

@@ -1,7 +1,9 @@
 window.onload = function() {
  	var aNavFirst = document.getElementsByClassName('nav_first');
 	var oSubPageNav = document.getElementById('sub_page_nav');
-	var oH4 = document.getElementById('sub_page_l').getElementsByTagName('h4')[0];
+	var oH4 = document.getElementById('sub_page_l');
+  if (oH4)
+    oH4 = oH4.getElementsByTagName('h4')[0];
 	var oConLi = document.getElementById('con_li');
 
 	var oSecUl = document.createElement('ul');
@@ -15,9 +17,9 @@ window.onload = function() {
       oH4.innerHTML = '';
       oConLi.innerHTML = '';
       href = this.href;
-
       var urlType = href.split('type=')[1].split('&')[0];
       var sUrl = 'document?type=' + href.split('type=')[1];
+
 			ajax('get', sUrl, '', function(rData) {
 				var commonUl = document.createElement('ul');
 				commonUl.setAttribute('id', 'commonUl');
@@ -86,7 +88,8 @@ window.onload = function() {
 
 			switch(this.index) {
 				case 0:
-					showMain(true);
+					// showMain(true);
+          location.href = "/"
 					break;
 				case 1:
 					showCon('topic');
@@ -168,7 +171,8 @@ window.onload = function() {
 		if (method == 'get' && data) {
 			url += '?' + data;
 		}
-
+    if (url[0] != "/")
+      url = "/"+url;
 		xhr.open(method, url, true);
 		if (method == 'get') {
 			xhr.send();
@@ -227,8 +231,8 @@ window.onload = function() {
 		}
 		aUrlType = urlType.split('&');
 		for (var j = 0; j < rData['docs'].length - 1; j++) {
-			oConLi.innerHTML += '<li class="clear"><div class="fl"><a href="view/'+ aUrlType[0] + '/' + rData['docs'][j]['id'] + '"><img src="http://10.9.36.201/static/' + rData['docs'][j]['cover'] + '"></a></div>'
-							 + '<div class="fl"><h5><a href="view/' + urlType + '/' + rData['docs'][j]['id'] + '">' + rData['docs'][j]['name'] + '</a><span class="fr">' + rData['docs'][j]['mtime'] + "</span></h5>"
+			oConLi.innerHTML += '<li class="clear"><div class="fl"><a href="/view/'+ aUrlType[0] + '/' + rData['docs'][j]['id'] + '"><img src="http://10.9.36.201/static/' + rData['docs'][j]['cover'] + '"></a></div>'
+							 + '<div class="fl"><h5><a href="/view/' + urlType + '/' + rData['docs'][j]['id'] + '">' + rData['docs'][j]['name'] + '</a><span class="fr">' + rData['docs'][j]['mtime'] + "</span></h5>"
 							 + '<p>' + rData['docs'][j]['intro'] + '</p></div></li>';
 		}
 	};

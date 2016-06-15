@@ -10,7 +10,9 @@
 #active span {color: #19a97b;}
 
 /* status_1_section */
-#upload_btn, #cfm_upload_btn, #ctn_upload_btn {position: absolute; top: 215px; left: 500px; width: 200px; height: 50px; border: none; border-radius: 8px; background: #ff9900; color: #fff; font-size: 20px;}
+#_upload_btn, #cfm_upload_btn, #ctn_upload_btn {position: absolute; top: 215px; left: 500px; width: 200px; height: 50px; border: none; border-radius: 8px; background: #ff9900; color: #fff; font-size: 20px;}
+#_upload_btn span {position: absolute; top: 10px; left: 57px;}
+#_upload_btn input[type=file] {width: 200px; height: 50px; opacity: 0;}
 #tips {position: absolute; top: 500px; left: 204px;}
 #tips h4 {font-size: 16px; color: #666;}
 #tips p {font-size: 14px; color: #666;}

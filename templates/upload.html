@@ -3,6 +3,7 @@
 {% block sub_nav %}{% end %}
 {% block bd %}
 <link rel="stylesheet" href="{{static_url('css/upload.css')}}">
+<div id="main">
 <div id="upload_box">
 	<div id="upload_status">
 		<div id="active">
@@ -21,7 +22,10 @@
 	<form method="post" id="upload" enctype="multipart/form-data">
 		{% raw xsrf_form_html() %}
 		<div id="status_1_section">
-			<input type="file" id="upload_btn" name="file" accept="application/pdf, image/jpeg, image/x-png">
+			<a href="javascript:;" id="_upload_btn">
+				<span>选择文档</span>
+				<input type="file" name="file" accept="application/pdf, image/jpeg, image/x-png" />
+			</a>
 			<div id="tips">
 				<h4>温馨提示:</h4>
 				<p>1.您可以上传文档资料的类型为PDF,DOC,PPT,XLS,JPG格式文档，暂不支持其他格式；</p>
@@ -62,10 +66,68 @@
 		</div>
 	</form>
 </div>
+</div>
 <script src="{{static_url('js/category.js')}}"></script>
 <script src="{{static_url('js/upload.js')}}"></script>
 <script src="{{static_url('js/ajaxUpload.js')}}"></script>
 <script src="{{static_url('js/fileInfo.js')}}"></script>
+<div class="wrap clear" id="sub_page">
+	<div class="fl" id="sub_page_l">
+		<div class="clear" id="sub_page_nav"></div>
+		<h4></h4>
+		<ul class="clear" id="con_li">
+		</ul>
+	</div>
+	<div class="fr" id="relates">
+		<div class="user_zone">
+			<div class="user_info clear">
+				<a href="#" class="potrait fl"><img src="{{static_url('img/potrait.png')}}"></a>
+				<a href="#" class="user_name fl">
+					{% if login %}
+						{{username}}
+					{% else %}
+						未登录
+					{% end %}
+				</a>
+			</div>
+			<form action="/upload" method="get">
+				<label class="upload_wrap" for="upload_btn">
+					上传我的文档
+					<input type="submit" value="上传我的文档" id="upload_btn">
+				</label>
+			</form>
+		</div>
+		<h4 class="related_hd">相关文档推荐</h4>
+		<ul class="related_docs">
+			<li>
+				<dl>
+					<dd><img src="{{static_url('img/related_img/case_1.jpg')}}"></dd>
+					<dt>人力资源制度</dt>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dd><img src="{{static_url('img/related_img/case_1.jpg')}}"></dd>
+					<dt>人力资源制度</dt>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dd><img src="{{static_url('img/related_img/case_1.jpg')}}"></dd>
+					<dt>人力资源制度</dt>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dd><img src="{{static_url('img/related_img/case_1.jpg')}}"></dd>
+					<dt>人力资源制度</dt>
+				</dl>
+			</li>
+		</ul>
+	</div>
+</div>
+<script src="{{static_url('js/read.js')}}"></script>
+<script src="{{static_url('js/sub_page.js')}}"></script>
 {% end %}
 {% block ad %}{% end %}
 {% block blogroll %}{% end %}
